@@ -1,8 +1,8 @@
-### myChart
+## myChart
 
 With this library you can create a bar chart in PHP. It use GD library to create chart image.  
 
-## Usage
+### Usage
 
 ```php
 use myChart\myChart;
@@ -27,4 +27,4 @@ $chart->renderChart(true, true);
 
 ### Example
 
-![alt text](https://github.com/dawidgorecki/myChart/blob/master/screen.png)
+![alt text](https://github.com/dawidgorecki/my-chart/blob/master/screen.png)
