@@ -182,13 +182,23 @@ class myChart
 
         $this->step = round(($this->chartHeight - $this->chartMargins[0] - $this->chartMargins[2]) / 100);
 
+        $total = [];
+        $counter = 0;
+
         foreach ($this->values as $value) {
+            $counter++;
             if ($value > 0) {
-                $this->percentage = intval(round(($value[1] / $this->valuesTotal) * 100));
+                $this->percentage = number_format(($value[1] / $this->valuesTotal) * 100, 2);
+                
+                if ($counter == count($this->values)) {
+                    $this->percentage = 100 - array_sum($total);
+                } else {
+                    $total[] = $this->percentage;
+                }   
             } else {
                 $this->percentage = 0; 
             } 
-            
+
             imagefilledrectangle($this->chart, 
                 $this->offsetX, 
                 $this->chartHeight - $this->chartMargins[2] - 1, 
